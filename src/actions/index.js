@@ -1,5 +1,6 @@
 export const LOGIN = 'LOGIN';
 export const GET_CURRENCIES = 'GET_CURRENCIES';
+export const SEND_EXPENSES = 'SEND_EXPENSES';
 
 export const loginAction = (email, password) => ({
   type: LOGIN,
@@ -10,6 +11,11 @@ export const loginAction = (email, password) => ({
 export const getCurrencies = (currencies) => ({
   type: GET_CURRENCIES,
   currencies,
+});
+
+export const sendExpenses = (expense) => ({
+  type: SEND_EXPENSES,
+  expense,
 });
 
 export function fetchCurrencyQuotesAPI() {
