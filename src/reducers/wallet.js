@@ -1,4 +1,4 @@
-import { GET_CURRENCIES } from '../actions';
+import { GET_CURRENCIES, SEND_EXPENSES } from '../actions';
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 const INITIAL_STATE = {
   // Consultar a minha API, no meu caso, o estado global. Quem eu quero?
@@ -14,6 +14,11 @@ function wallet(state = INITIAL_STATE, action) {
       // Consegui essa parte com a ajuda do cantor Muca na mentoria técnica
       // Só usamos o spread quando queremos espalhar, mas nesse caso eu quero salvar as informações na minha currencies
       currencies: action.currencies,
+    };
+  case SEND_EXPENSES:
+    return {
+      ...state,
+      expenses: action.expenses,
     };
   default:
     return state;
