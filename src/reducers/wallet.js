@@ -19,6 +19,7 @@ function wallet(state = INITIAL_STATE, action) {
     return {
       ...state,
       // Preciso acessar o expenses, mas ele tá no state. Ñ quero alterar o meu estado, quero adicionar, por isso botei , + action.payload
+      // Consegui essa parte graças a ajuda do Carlos na monitoria Summer
       expenses: [...state.expenses, action.payload],
     };
   default:
