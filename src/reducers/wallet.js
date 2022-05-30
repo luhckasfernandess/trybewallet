@@ -18,7 +18,8 @@ function wallet(state = INITIAL_STATE, action) {
   case SEND_EXPENSES:
     return {
       ...state,
-      expenses: action.expenses,
+      // Preciso acessar o expenses, mas ele tá no state. Ñ quero alterar o meu estado, quero adicionar, por isso botei , + action.payload
+      expenses: [...state.expenses, action.payload],
     };
   default:
     return state;

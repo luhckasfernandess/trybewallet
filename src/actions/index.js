@@ -12,14 +12,15 @@ export const getCurrencies = (currencies) => ({
   currencies,
 });
 
-export const sendExpenses = (prevExpenses, expenses) => ({
+export const sendExpenses = (expenses) => ({
   type: SEND_EXPENSES,
-  expenses: [...prevExpenses, expenses],
+  payload: expenses,
 });
 
 export function fetchCurrencyQuotesAPI() {
   return async (dispatch) => { // thunk declarado
-    const currencyQuotes = await (await fetch('https://economia.awesomeapi.com.br/json/all')).json();
+    const URL_API = 'https://economia.awesomeapi.com.br/json/all';
+    const currencyQuotes = await (await fetch(URL_API)).json();
     // Remova das informações trazidas pela API a opção 'USDT' (Moeda Tether).
     const currencies = Object.keys(currencyQuotes)
       .filter((currency) => currency !== 'USDT');
